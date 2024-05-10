@@ -1,0 +1,4 @@
+WIDTH = 250
+HEIGHT = 300
+TITLE = "OS-2024-Priority-Schedule"
+GEOMETRY = f"{WIDTH}x{HEIGHT}"
