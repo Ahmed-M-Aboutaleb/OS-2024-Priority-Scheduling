@@ -78,5 +78,11 @@ class Application(tk.Frame):
         chart = C.Chart()
         chart.ganttChart(chartData)
 
+        # Display the waiting time, turnaround time, and response time for each process
+        for i, p in enumerate(processes):
+            times_label = tk.Label(self, text=f"Process {p.pid}: Waiting Time = {p.waitingTime}, Turnaround Time = {p.turnAroundTime}, Response Time = {p.waitingTime}")
+            times_label.grid(row=len(self.process_entries)*3+3+i, column=0, columnspan=2)
+
+        # Display the average waiting time, average turnaround time, and average response time
         avgTimesLabel = tk.Label(self, text=f"Average Waiting Time: {avgWaitingTime}\nAverage Turnaround Time: {avgTurnaroundTime}\nAverage Response Time: {avgResponseTime}")
-        avgTimesLabel.grid(row=len(self.process_entries)*3+3, column=0, columnspan=2)
+        avgTimesLabel.grid(row=len(self.process_entries)*3+3+len(processes), column=0, columnspan=2)
